@@ -138,4 +138,14 @@ public class Path extends ArrayList<Waypoint> {
         }
         return str;
     }
+    public void toCSVPath() throws IOException{
+        String path = "src/main/resources/Paths/PathTostring.csv";
+        CSVWriter csvwriter = new CSVWriter(new FileWriter(path));
+        List<String[]> data = new ArrayList<>();
+        for(int i = 0;i<size();i++){
+            data.add(new String[] {"new Waypoint("+get(i).x+","+get(i).y+","+get(i).velocity+"),"});
+        }
+        csvwriter.writeAll(data);
+        csvwriter.close();
+    }
 }

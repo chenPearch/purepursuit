@@ -25,7 +25,7 @@ public class Main extends PApplet
     double MetersPerPixles,PixlesPerMeters;
     Vector lookAheadPoint;
     Path path_;
-    String imagePath = "Images/frc_2019_arena.jpeg";
+    String imagePath = "Images/frc_2020_arena.png";
     Follower follower;
     PImage backGround;
     public void settings(){
@@ -47,7 +47,7 @@ public class Main extends PApplet
     }
     public void reset(){
         follower = null;
-        path_ = new Path(0.3,1.3,3);
+        path_ = new Path(0.5,1.3,2);
     }
     public void draw(){
         background(backGround);
@@ -61,11 +61,9 @@ public class Main extends PApplet
                         , (float)(path_.get(i+1).x/MetersPerPixles),(float)(path_.get(i+1).y/MetersPerPixles));
             }
             fill(255, 255, 0);
-            for(int i = 0; i<path_.size();i++){
-//                text("[" + (int)path_.get(i).x+","+ (int)path_.get(i).y+ "]", (float)(path_.get(i).x/MetersPerPixles),(float)(path_.get(i).y/MetersPerPixles));
-                text("[" +path_.get(i).velocity+ "]", (float)(path_.get(i).x/MetersPerPixles),(float)(path_.get(i).y/MetersPerPixles));
-
-            }
+//            for(int i = 0; i<path_.size();i++){
+//                text("[" +path_.get(i).velocity+ "]", (float)(path_.get(i).x/MetersPerPixles),(float)(path_.get(i).y/MetersPerPixles));
+//            }
         }
 
 
@@ -93,7 +91,7 @@ public class Main extends PApplet
                 break;
             case 's':
                 try {
-                    path_.SavePath("dolev");
+                    path_.toCSVPath();
                 }catch (IOException e){
                    e.printStackTrace();
                 }
