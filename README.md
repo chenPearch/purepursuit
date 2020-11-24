@@ -14,3 +14,5 @@ controls:
 ## TODO
 * add a follower for the path that will simulate the robot's position, rotation and velocity.
  
+## Bugs
+you can't use this project currently because of gradle build issues.
